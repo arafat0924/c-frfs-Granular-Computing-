@@ -1,0 +1,5 @@
+python -m src.reproduce --data data/KDDTrain.txt --runs 5   (cap 5000, conditions none/cfrfs/mi, classifier dt, seed 0)
+run on 2026-11-02, Python 3.12.3, versions in requirements-lock.txt
+run1: {'none': 0.7448, 'cfrfs': 0.7978, 'mi': 0.7319}
+run2: {'none': 0.7448, 'cfrfs': 0.7978, 'mi': 0.7319}
+REPRODUCIBLE: True

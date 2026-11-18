@@ -1,0 +1,9 @@
+C-FRFS timing (CPU only). 2026-11-02, Linux, Python 3.12.3, library versions in requirements-lock.txt.
+Machine: 6 cores shared with other services (load average 7 to 9 during the runs); jobs ran with nice 15 and OMP_NUM_THREADS=2.
+The build spec budgeted about 29 min for the full run on an idle machine; these times include contention.
+
+command                                   time
+src.run_all --runs 30                     experiment 2349 s, total 39 min 53 s
+src.run_all --fixed --runs 30             experiment 2617 s, total 44 min 25 s
+src.reproduce --runs 5 (two runs)         3 min 31 s
+src.robustness (9 settings)               27 min 31 s

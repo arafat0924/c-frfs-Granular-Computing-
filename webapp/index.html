@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C-FRFS</title>
+<meta name="description" content="Consensus fuzzy-rough feature selection for intrusion detection. Watch the column vote run live.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23111%22/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Lexend (SIL Open Font License), latin subset, one variable file for every weight; served with the page */
+  @font-face { font-family:"Lexend"; font-style:normal; font-weight:300 700; font-display:swap; src:url(fonts/lexend-latin.woff2) format("woff2");
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  :root {
+    --ink:#111216; --ink2:#3a3c45; --muted:#5b5d68; --faint:#9a9caa; --white:#fbfbfd;
+    --card-1:#e3e2e8; --card-2:#d3d2dc; --track:#f3f3f6; --line:rgba(17,18,22,.08);
+    --bad:#e8454e; --good:#2fa66f; --font:"Lexend", system-ui, sans-serif;
+  }
+  * { box-sizing:border-box; }
+  [hidden] { display:none !important; }
+  html, body { margin:0; min-height:100%; }
+  body { min-height:100vh; min-height:100dvh; display:flex; flex-direction:column; overflow-x:hidden;
+         font:300 15px/1.55 var(--font); color:var(--ink); -webkit-font-smoothing:antialiased;
+         background:radial-gradient(70% 55% at 50% 18%, #ffffff 0%, var(--white) 55%, #f1f1f5 100%) fixed; }
+  button { font:inherit; color:inherit; }
+  :focus-visible { outline:2px solid var(--ink); outline-offset:3px; border-radius:8px; }
+
+  /* ---------- side nav ---------- */
+  .side { position:fixed; left:clamp(.75rem, 3vw, 3.5rem); top:50%; transform:translateY(-50%);
+          display:flex; flex-direction:column; gap:1.5rem; z-index:5; }
+  .nav-btn { position:relative; background:none; border:0; cursor:pointer; color:var(--ink);
+             display:flex; flex-direction:column; align-items:center; gap:.3rem; padding:.25rem; font:300 .8rem var(--font); }
+  .nav-btn svg { width:2.4rem; height:2.4rem; fill:none; stroke:currentColor; stroke-width:1.3;
+                 stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
+  .nav-btn:hover svg { transform:scale(1.08); }
+  .nav-btn.active::after { content:""; position:absolute; left:calc(100% + 1rem); top:1.2rem; translate:0 -50%;
+    width:1.35rem; height:1.35rem; border-radius:50%;
+    background:radial-gradient(circle at 34% 30%, #8a8a8f 0%, #2a2a2e 32%, #050506 70%);
+    box-shadow:0 6px 10px rgba(0,0,0,.35), inset -2px -3px 5px rgba(0,0,0,.6); animation:pop .35s ease; }
+  @keyframes pop { from { transform:scale(0); } }
+
+  /* ---------- the one section ---------- */
+  main { flex:1; display:flex; justify-content:center;
+         padding:clamp(2rem, 6vh, 4rem) clamp(1rem, 4vw, 3rem) 1rem clamp(6.5rem, 12vw, 11rem); }
+  .stage { width:min(100%, 64rem); display:flex; flex-direction:column; align-items:center; }
+
+  .intro { text-align:center; max-width:40rem; }
+  .eyebrow { font-weight:600; font-size:.85rem; letter-spacing:.01em; }
+  h1 { margin:.15rem 0 .5rem; font-weight:700; font-size:clamp(2.2rem, 5vw, 3.4rem); line-height:1.05; letter-spacing:-.02em; }
+  .lede { margin:0; color:var(--muted); font-size:1rem; }
+
+  /* the pill */
+  .pill-wrap { position:relative; width:min(100%, 40rem); margin:clamp(1.6rem, 4vh, 2.6rem) 0 0; display:grid; place-items:center; }
+  .glow { position:absolute; inset:-60% -4%; pointer-events:none; filter:blur(20px); opacity:.55;
+    background:radial-gradient(28% 24% at 50% 70%, rgba(255,186,140,.75), transparent 70%),
+               radial-gradient(45% 40% at 50% 50%, rgba(255,255,255,.95), transparent 70%); }
+  .go { position:relative; width:100%; min-height:clamp(5rem, 11vw, 8rem); border:0; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0 clamp(1.5rem, 5vw, 3.8rem);
+    border-radius:999px; text-align:left;
+    background:linear-gradient(180deg, #f6f6f9 0%, #ececf1 55%, #e4e4eb 100%);
+    box-shadow:inset 0 2px 1px #fff, inset 0 -4px 8px rgba(80,80,100,.10),
+      0 0 0 1px rgba(255,255,255,.9), 0 1px 0 2px rgba(190,190,205,.45),
+      -2.2rem 3rem 3.2rem -1.2rem rgba(70,72,92,.32), -1rem 1.4rem 2rem rgba(70,72,92,.12);
+    transition:transform .2s; }
+  .go:hover { transform:translateY(-3px); }
+  .go:active { transform:translateY(1px); }
+  .go:focus-visible { outline-offset:6px; border-radius:999px; }
+  .go.busy { pointer-events:none; animation:breathe 1.4s ease-in-out infinite; }
+  @keyframes breathe { 50% { transform:scale(.985); filter:brightness(.97); } }
+  #goText { font:400 clamp(1.45rem, 4vw, 2.6rem)/1.1 "Helvetica Neue", Arial, sans-serif; letter-spacing:-.01em; }
+  .gt { display:flex; flex-direction:column; gap:.5rem; }
+  .soon { display:flex; align-items:center; gap:.55rem; font:300 clamp(.78rem, 1.5vw, .92rem)/1.35 var(--font); color:var(--muted); }
+  .soon i { flex:none; width:.5rem; height:.5rem; border-radius:50%; background:#e0a032; box-shadow:0 0 0 3px rgba(224,160,50,.2); }
+  .go.static { cursor:default; }
+  .go.static:hover, .go.static:active { transform:none; }
+  .go svg { flex:none; width:clamp(2.6rem, 6vw, 4.2rem); height:auto; fill:none; stroke:var(--ink); stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* quiet controls */
+  .controls { position:relative; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:.7rem 1.6rem; margin:2.2rem 0 0; font-weight:400; font-size:.9rem; }
+  .seg { display:flex; gap:2px; padding:3px; border-radius:999px; background:var(--track); box-shadow:inset 0 1px 3px rgba(0,0,0,.08); }
+  .seg button { border:0; background:none; cursor:pointer; padding:.35rem .95rem; border-radius:999px; color:var(--muted); font-weight:400; transition:background .2s, color .2s; }
+  .seg button.on { background:var(--ink); color:#fff; }
+  .num { display:flex; align-items:center; gap:.45rem; color:var(--muted); }
+  .num span { min-width:1.6rem; text-align:center; color:var(--ink); font-weight:600; font-variant-numeric:tabular-nums; }
+  .num button { width:1.7rem; height:1.7rem; border-radius:50%; border:1px solid var(--line); background:#fff; cursor:pointer; line-height:1; color:var(--ink2); transition:border-color .15s; }
+  .num button:hover { border-color:var(--ink); }
+  .tog { display:flex; align-items:center; gap:.55rem; cursor:pointer; color:var(--muted); }
+  .tog input { appearance:none; -webkit-appearance:none; margin:0; width:2.1rem; height:1.2rem; border-radius:1rem; background:#d7d7df; position:relative; cursor:pointer; transition:background .2s; }
+  .tog input::after { content:""; position:absolute; top:.15rem; left:.15rem; width:.9rem; height:.9rem; border-radius:50%; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.3); transition:transform .2s; }
+  .tog input:checked { background:var(--ink); }
+  .tog input:checked::after { transform:translateX(.9rem); }
+  .status { min-height:1.5em; margin:1.1rem 0 0; text-align:center; color:var(--muted); }
+  .status.err { color:var(--bad); font-weight:400; }
+
+  /* result card */
+  .card { width:100%; margin:1.4rem 0 0; display:grid; grid-template-columns:minmax(0, 1.85fr) minmax(0, 1fr);
+          gap:clamp(.75rem, 1.6vw, 1.2rem); padding:clamp(.75rem, 1.6vw, 1.2rem);
+          background:#fff; border-radius:2rem;
+          box-shadow:0 0 0 1px rgba(17,18,22,.04), 0 30px 60px -28px rgba(40,44,70,.35); }
+  .vote { padding:clamp(1rem, 2.4vw, 1.8rem) clamp(1rem, 2.6vw, 2rem); min-width:0; }
+  .vote small, .score small, .side-h small { font-weight:600; font-size:.85rem; }
+  .vote h2 { margin:.1rem 0 1rem; font-weight:700; font-size:clamp(1.35rem, 2.6vw, 1.8rem); line-height:1.15; }
+
+  .steps { list-style:none; margin:0; padding:0; display:grid; gap:.9rem; }
+  .steps li { display:grid; grid-template-columns:2rem 1fr; align-items:baseline; color:var(--muted); }
+  .steps b { font-weight:300; font-size:1.5rem; color:var(--ink); line-height:1; }
+
+  .bars { columns:2 15rem; column-gap:2rem; }
+  .row { break-inside:avoid; display:grid; grid-template-columns:8.6rem minmax(3rem, 1fr) 2.6rem; align-items:center; gap:.6rem; height:1.55rem; font-size:.78rem; }
+  .row .nm { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--muted); font-weight:300; }
+  .row .tr { position:relative; height:.8rem; border-radius:.25rem; background:var(--track); padding:2px; box-shadow:inset 0 1px 2px rgba(0,0,0,.1); }
+  .row .tr::after { content:""; position:absolute; left:50%; top:-3px; bottom:-3px; width:1px; background:rgba(17,18,22,.32); }
+  .row i { --vc:var(--ink2); display:block; height:100%; width:0; border-radius:.15rem; transition:width .5s cubic-bezier(.2,.8,.2,1);
+           background:repeating-linear-gradient(90deg, var(--vc) 0 4px, color-mix(in srgb, var(--vc) 50%, #fff) 4px 6px); }
+  .row .v { text-align:right; font-variant-numeric:tabular-nums; color:var(--muted); }
+  .bars.done .row i { --vc:#c9c9d3; }
+  .bars.done .row.kept i { --vc:var(--good); }
+  .bars.done .row.kept .nm, .bars.done .row.kept .v { color:var(--ink); font-weight:400; }
+  .legend { margin:1rem 0 0; color:var(--faint); font-size:.8rem; }
+  .verdict { margin:1.1rem 0 0; padding:1rem 0 0; border-top:1px solid var(--line); }
+  .verdict b { font-weight:600; }
+  .verdict p { margin:.25rem 0 0; color:var(--muted); font-size:.9rem; }
+
+  .side-col { display:flex; flex-direction:column; gap:clamp(.75rem, 1.6vw, 1.2rem); min-width:0; }
+  .side-h { display:flex; align-items:center; justify-content:space-between; gap:.6rem; padding:.6rem .4rem 0; flex-wrap:wrap; }
+  .seg.sm button { padding:.2rem .7rem; font-size:.78rem; }
+  .score { --vc:var(--ink2); flex:1; display:flex; flex-direction:column; justify-content:center;
+           padding:clamp(1.1rem, 2.4vw, 1.8rem) clamp(1.1rem, 2.6vw, 2rem); border-radius:1.4rem; background:var(--card-1); }
+  .score.alt { background:var(--card-2); }
+  .score.up { --vc:var(--good); } .score.dn { --vc:var(--bad); }
+  .score h3 { margin:.05rem 0 .6rem; font-weight:700; font-size:clamp(1.3rem, 2.4vw, 1.7rem); line-height:1.1; }
+  .pct { font-weight:300; font-size:clamp(1.5rem, 3vw, 2.1rem); color:var(--ink2); margin-bottom:.55rem; font-variant-numeric:tabular-nums; }
+  .pct small { font-size:.85rem; font-weight:300; color:var(--muted); }
+  .bar { height:1.4rem; border-radius:.35rem; background:var(--track); padding:3px; box-shadow:inset 0 1px 3px rgba(0,0,0,.12), 0 0 0 1px rgba(255,255,255,.7); }
+  .bar i { display:block; height:100%; width:0; border-radius:.25rem; transition:width 1s cubic-bezier(.2,.8,.2,1);
+           background:repeating-linear-gradient(90deg, var(--vc) 0 5px, color-mix(in srgb, var(--vc) 55%, #fff) 5px 7px); }
+  .score p { margin:.6rem 0 0; font-size:.88rem; color:var(--vc); font-weight:400; }
+  .score.alt p { color:var(--muted); font-weight:300; }
+  .more { align-self:flex-end; background:none; border:0; cursor:pointer; color:var(--muted); padding:.1rem .4rem .3rem;
+          font:400 .88rem var(--font); text-decoration:underline; text-underline-offset:3px; }
+  .more:hover { color:var(--ink); }
+
+  .credit { display:block; text-align:center; padding:1.6rem 1rem 1.8rem; color:var(--ink); text-decoration:none; font-weight:300; font-size:clamp(1rem, 1.6vw, 1.25rem); }
+  .credit b { font-weight:700; }
+  .credit:hover b { text-decoration:underline; }
+
+  /* ---------- pop-ups ---------- */
+  .popup { width:min(92vw, 34rem); max-height:85vh; border:0; border-radius:1.4rem; padding:2rem 2rem 1.6rem;
+           background:#0d0d10; color:#eceef3; font:300 .96rem/1.6 var(--font); box-shadow:0 30px 80px rgba(0,0,0,.55); }
+  .popup.wide { width:min(94vw, 58rem); }
+  .popup::backdrop { background:rgba(20,22,30,.4); backdrop-filter:blur(4px); }
+  .popup[open] { animation:rise .3s ease; }
+  @keyframes rise { from { opacity:0; transform:translateY(14px) scale(.98); } }
+  .popup h3 { margin:0 0 .8rem; font-weight:600; font-size:1.5rem; }
+  .popup h4 { margin:1.8rem 0 .5rem; font-weight:600; font-size:1rem; color:#fff; }
+  .popup b { font-weight:600; color:#fff; }
+  .popup p, .popup li { text-align:justify; hyphens:auto; }
+  .popup ul { padding-left:1.1rem; margin:0; } .popup li { margin-bottom:.55rem; }
+  .popup .note { color:#9a9dab; font-size:.85rem; margin:.4rem 0 0; text-align:left; }
+  .x { position:absolute; top:.8rem; right:1rem; background:none; border:0; color:#aaa; font-size:1.8rem; line-height:1; cursor:pointer; }
+  .x:hover { color:#fff; }
+  .popup .seg { background:rgba(255,255,255,.08); box-shadow:none; width:max-content; max-width:100%; flex-wrap:wrap; }
+  .popup .seg button { color:#a9acb8; }
+  .popup .seg button.on { background:#fff; color:#0d0d10; }
+  .tw { overflow-x:auto; margin:0 -.2rem; }
+  table { border-collapse:collapse; width:100%; font-size:.86rem; }
+  th, td { text-align:left; padding:.5rem .6rem; border-bottom:1px solid rgba(255,255,255,.08); white-space:nowrap; }
+  th { font-weight:400; color:#8b8e9a; font-size:.78rem; }
+  td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+  td i { font-style:normal; color:#7c7f8c; font-size:.78rem; margin-left:.35rem; }
+  td.wrap { white-space:normal; color:#c9ccd6; }
+  tr.best td { color:#fff; font-weight:600; }
+  tr.base td { color:#8b8e9a; }
+  .figs { display:grid; grid-template-columns:repeat(auto-fit, minmax(16rem, 1fr)); gap:.8rem; }
+  .figs a { display:block; border-radius:.8rem; overflow:hidden; background:#fff; transition:transform .2s; }
+  .figs a:hover { transform:translateY(-2px); }
+  .figs img { display:block; width:100%; }
+
+  /* ---------- tablet / phone ---------- */
+  @media (max-width: 900px) { .card { grid-template-columns:1fr; } .side-col { display:grid; grid-template-columns:1fr 1fr; } .side-h, .more { grid-column:1 / -1; } .more { justify-self:end; } }
+  @media (max-width: 640px) {
+    main { padding:1.6rem 1rem 1rem; }
+    .side { top:auto; bottom:0; left:0; right:0; transform:none; flex-direction:row; justify-content:space-around; gap:0;
+            padding:.5rem .5rem calc(.5rem + env(safe-area-inset-bottom)); background:rgba(248,248,251,.85);
+            backdrop-filter:blur(12px); border-top:1px solid rgba(17,18,22,.06); }
+    .nav-btn svg { width:1.8rem; height:1.8rem; }
+    .nav-btn.active::after { left:50%; top:-.5rem; translate:-50% 0; width:.75rem; height:.75rem; }
+    .credit { padding-bottom:6rem; }
+    .card { border-radius:1.6rem; }
+    .side-col { grid-template-columns:1fr; }
+    .row { grid-template-columns:7.2rem minmax(3rem, 1fr) 2.4rem; }
+    .popup { padding:1.6rem 1.2rem 1.2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="side" aria-label="Main">
+  <button class="nav-btn active" data-go="vote">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 13.5h17V21h-17z"/><path d="M7.5 13.5V4h9v9.5"/><path d="M9.8 8.6l1.6 1.6 3-3.2"/><path d="M6 17.2h12"/></svg>
+    <span>Vote</span>
+  </button>
+  <button class="nav-btn" data-go="results">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5h17"/><path d="M7 20.5v-6M12 20.5V7.5M17 20.5V11"/><circle cx="12" cy="4.2" r="1.2"/></svg>
+    <span>Results</span>
+  </button>
+  <button class="nav-btn" data-go="method">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h5M9.5 21h4M8 14.5a6 6 0 1 1 7 0c-.7.6-1 1.3-1 2H9c0-.7-.3-1.4-1-2Z"/><circle cx="17.5" cy="6.5" r="2.2"/><path d="M17.5 3v1.3M17.5 8.7V10M14 6.5h1.3M19.7 6.5H21"/></svg>
+    <span>Method</span>
+  </button>
+  <button class="nav-btn" data-go="limits">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9.5v5M12 17.2v.3"/></svg>
+    <span>Limits</span>
+  </button>
+</nav>
+
+<main>
+  <section class="stage" aria-labelledby="title">
+    <header class="intro">
+      <div class="eyebrow">Consensus fuzzy-rough feature selection</div>
+      <h1 id="title">C-FRFS</h1>
+      <p class="lede">Plain FRFS picks different columns every time it runs. C-FRFS runs it many times on small samples of network traffic and keeps only the columns most runs agree on.</p>
+    </header>
+
+    <div class="pill-wrap">
+      <div class="glow" aria-hidden="true"></div>
+      <button class="go static" id="go" type="button" aria-disabled="true" aria-describedby="soon">
+        <span class="gt"><span id="goText">Run the vote</span><small id="soon" class="soon"><i></i>Live runs coming soon. Tested locally, still in development.</small></span>
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M5 9h38L28 26.5V38l-8 4V26.5L5 9Z"/>
+          <path d="M11 15.5h26"/><circle cx="17" cy="4.5" r="1.4"/><circle cx="25" cy="3.5" r="1.4"/><circle cx="32" cy="5" r="1.4"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="controls">
+      <div class="seg" id="ds" role="radiogroup" aria-label="Dataset">
+        <button role="radio" aria-checked="true" class="on" data-v="nslkdd">NSL-KDD</button>
+        <button role="radio" aria-checked="false" data-v="cici2023">CIC-IoT2023</button>
+      </div>
+    </div>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <div class="card">
+      <div class="vote">
+        <small id="voteLabel">The vote</small>
+        <h2 id="voteTitle">How it works</h2>
+        <div id="chart">
+          <div class="bars" id="bars"></div>
+          <p class="legend">Bar: share of runs that picked the column. Line: the 50% cut-off.</p>
+          <div class="verdict" id="verdict"></div>
+        </div>
+      </div>
+
+      <div class="side-col">
+        <div class="side-h">
+          <small>Measured, 5-fold cross-validation</small>
+          <div class="seg sm" id="clf" role="radiogroup" aria-label="Classifier">
+            <button role="radio" aria-checked="true" class="on" data-v="dt">Decision tree</button>
+            <button role="radio" aria-checked="false" data-v="knn">kNN</button>
+          </div>
+        </div>
+        <article class="score" id="sc1">
+          <small>This project</small>
+          <h3>C-FRFS</h3>
+          <div class="pct"><span>–</span> <small>macro-F1</small></div>
+          <div class="bar"><i></i></div>
+          <p></p>
+        </article>
+        <article class="score alt" id="sc2">
+          <small>Baseline</small>
+          <h3>All columns</h3>
+          <div class="pct"><span>–</span> <small>macro-F1</small></div>
+          <div class="bar"><i></i></div>
+          <p></p>
+        </article>
+        <button class="more" data-go="results">See all results</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="credit" href="https://arafatcodes.dev" target="_blank" rel="noopener">Developed By <b>ARAFAT.</b></a>
+
+<dialog id="results" class="popup wide">
+  <button class="x" aria-label="Close">×</button>
+  <h3>Results</h3>
+  <div class="seg" id="rset" role="radiogroup" aria-label="Result set">
+    <button role="radio" aria-checked="true" class="on" data-v="nslkdd">NSL-KDD</button>
+    <button role="radio" aria-checked="false" data-v="cici_group">CIC-IoT2023 · 8 groups</button>
+    <button role="radio" aria-checked="false" data-v="cici_binary">CIC-IoT2023 · benign vs attack</button>
+  </div>
+  <p class="note">Macro-F1, mean over 5 folds; higher is better and every class counts equally. The small number is the spread between folds; gaps smaller than it are ties.</p>
+  <div id="rbody"></div>
+</dialog>
+
+<dialog id="method" class="popup">
+  <button class="x" aria-label="Close">×</button>
+  <h3>Method</h3>
+  <p><b>FRFS.</b> Fuzzy-rough feature selection adds columns one at a time, always the one that makes the most records clearly belong to their class. Its cost grows with the square of the row count, so it runs on 300-row samples.</p>
+  <p><b>The consensus.</b> C-FRFS runs FRFS 30 times, each on a fresh 300-row sample, and keeps the columns that at least half the runs picked. The kept columns are original, readable ones, unlike PCA.</p>
+  <p><b>The test.</b> 5-fold cross-validation on 20,000 rows, k = 12 columns for every method, scored with kNN and a decision tree. Compared with all columns, one FRFS run on 300 or 1,000 rows, mutual information, chi-squared and PCA.</p>
+  <p><b>Data.</b> NSL-KDD (41 columns, 5 classes) and CIC-IoT2023 (39 columns, benign plus 7 attack families).</p>
+</dialog>
+
+<dialog id="limits" class="popup">
+  <button class="x" aria-label="Close">×</button>
+  <h3>Limits</h3>
+  <ul>
+    <li><b>Not more accurate than one FRFS run.</b> The vote makes the pick more repeatable, but the scores sit inside the fold-to-fold spread.</li>
+    <li><b>All columns win on CIC-IoT2023.</b> Every 12-column set, C-FRFS included, scores lower than using all 39.</li>
+    <li><b>Column order matters.</b> On 300 rows FRFS reaches its best score after about 3 columns; later picks are ties settled by column order. A re-run that breaks ties at random keeps only about 3 columns.</li>
+    <li><b>NSL-KDD is not IoT traffic.</b> The IoT claims rest on CIC-IoT2023 only, a capped third-party copy.</li>
+    <li>One seed, one sample, k = 12 not tuned. NSL-KDD's rarest class has 8 rows.</li>
+  </ul>
+</dialog>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fx = (x, d) => x == null || x === '' ? '–' : Number(x).toFixed(d);
+const METHOD = {none:'All columns', cfrfs:'C-FRFS', frfs_300:'One FRFS run, 300 rows', frfs_1000:'One FRFS run, 1,000 rows',
+  mi:'Mutual information', chi2:'Chi-squared', pca:'PCA', cfrfs_top12:'C-FRFS, top 12', mi_matched:'Mutual information, same size'};
+const meth = c => METHOD[c] || c;
+
+// ---- segmented controls
+function seg(id, onChange) {
+  const root = $(id);
+  root.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b || b.classList.contains('on')) return;
+    root.querySelectorAll('button').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-checked', x === b); });
+    onChange(b.dataset.v);
+  });
+  return () => root.querySelector('.on').dataset.v;
+}
+const dataset = seg('ds', () => { paintScores(); showVote(); });
+const clf = seg('clf', () => paintScores());
+const rset = seg('rset', () => paintResults());
+
+// ---- nav + pop-ups (the black ball follows the open pop-up)
+const nav = [...document.querySelectorAll('.nav-btn')];
+const mark = go => nav.forEach(b => b.classList.toggle('active', b.dataset.go === go));
+document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => {
+  const go = b.dataset.go;
+  if (go === 'vote') { document.querySelectorAll('dialog[open]').forEach(d => d.close()); scrollTo({top:0, behavior:'smooth'}); return; }
+  document.querySelectorAll('dialog[open]').forEach(d => d.close());
+  if (go === 'results') paintResults();
+  $(go).showModal(); mark(go);
+}));
+document.querySelectorAll('dialog').forEach(d => {
+  d.querySelector('.x').onclick = () => d.close();
+  d.addEventListener('click', e => { if (e.target === d) d.close(); });     // click on the backdrop
+  d.addEventListener('close', () => { if (!document.querySelector('dialog[open]')) mark('vote'); });
+});
+
+// ---- results
+const cache = {};
+async function getResults(set) {
+  if (!cache[set]) {
+    const r = await fetch(location.origin + '/api/results?set=' + set);
+    if (!r.ok) throw new Error(r.status);
+    cache[set] = await r.json();
+  }
+  return cache[set];
+}
+const byCond = rows => { const by = {}; rows.forEach(x => (by[x.condition] ||= {})[x.classifier] = x); return by; };
+
+function fillScore(el, row, text, cls) {
+  el.className = 'score' + (el.id === 'sc2' ? ' alt' : '') + (cls ? ' ' + cls : '');
+  el.querySelector('.pct span').textContent = row ? fx(row.macro_f1_mean, 3) : '–';
+  el.querySelector('.bar i').style.width = row ? (row.macro_f1_mean * 100) + '%' : '0';
+  el.querySelector('p').textContent = text;
+}
+async function paintScores() {
+  const set = dataset() === 'nslkdd' ? 'nslkdd' : 'cici_group';
+  let d; try { d = await getResults(set); } catch { fillScore($('sc1'), null, 'Could not load results.'); fillScore($('sc2'), null, ''); return; }
+  const by = byCond(d.rows), c = by.cfrfs?.[clf()], a = by.none?.[clf()];
+  if (!c || !a) return;
+  const diff = c.macro_f1_mean - a.macro_f1_mean, tie = Math.abs(diff) < Math.max(c.macro_f1_std, a.macro_f1_std);
+  fillScore($('sc1'), c, `${c.n_features} of ${a.n_features} columns · ${Math.abs(diff).toFixed(3)} ${diff >= 0 ? 'higher' : 'lower'}${tie ? ', within the spread' : ''}`,
+            tie ? '' : diff >= 0 ? 'up' : 'dn');
+  fillScore($('sc2'), a, `${a.n_features} columns · ± ${fx(a.macro_f1_std, 3)} between folds`);
+}
+
+function table(head, rows, textCols = [0]) {
+  const al = i => textCols.includes(i) ? '' : 'n';
+  return '<div class="tw"><table><thead><tr>' + head.map((h, i) => `<th class="${al(i)}">${h}</th>`).join('') + '</tr></thead><tbody>' +
+    rows.map(r => `<tr class="${r.cls || ''}">` + r.cells.map((c, i) => `<td class="${al(i)}${r.wrap === i ? ' wrap' : ''}">${c}</td>`).join('') + '</tr>').join('') +
+    '</tbody></table></div>';
+}
+async function paintResults() {
+  const set = rset(), body = $('rbody');
+  let d; try { d = await getResults(set); } catch { body.innerHTML = '<p class="note">Could not load results.</p>'; return; }
+  if (set !== rset()) return;                          // the picker moved on while this loaded
+  const by = byCond(d.rows), conds = Object.keys(by), best = {};
+  ['knn', 'dt'].forEach(m => { best[m] = conds.filter(k => k !== 'none' && by[k][m]).reduce((a, b) => by[b][m].macro_f1_mean > by[a][m].macro_f1_mean ? b : a); });
+  const cell = x => x ? `${fx(x.macro_f1_mean, 3)}<i>± ${fx(x.macro_f1_std, 3)}</i>` : '–';
+
+  let h = '<h4>Scores</h4>' + table(['Method', 'Columns', 'kNN', 'Decision tree'], conds.map(k => {
+    const kn = by[k].knn, dt = by[k].dt, nf = (kn || dt).n_features;
+    return {cls: k === 'none' ? 'base' : (best.knn === k || best.dt === k ? 'best' : ''), cells: [esc(meth(k)), nf < 0 ? 'new (PCA)' : nf, cell(kn), cell(dt)]};
+  })) + '<p class="note">Bold: the best method that uses fewer columns, for at least one classifier.</p>';
+
+  h += '<h4>Stability</h4>' + table(['Method', 'Same columns across folds', 'Two runs agree', 'Two C-FRFS repeats agree'],
+    Object.entries(d.stability).filter(([k]) => k !== 'none').map(([k, v]) => ({cells: [esc(meth(k)), fx(v.across_folds, 2), fx(v.within_resamples, 2), fx(v.consensus_repeat, 2)]})))
+    + '<p class="note">1.00 means the same columns every time.</p>';
+
+  const dt = d.paired.filter(p => p.metric === 'macro_f1');
+  h += '<h4>C-FRFS against each method</h4>' + table(['Classifier', 'Compared with', 'Average difference', 'Folds as good or better'],
+    dt.map(p => ({cells: [p.classifier === 'knn' ? 'kNN' : 'Decision tree', esc(meth(p.other)), (p.mean_diff >= 0 ? '+' : '') + fx(p.mean_diff, 4), `${esc(p.folds_cfrfs_ge)} of ${esc(p.folds)}`]})), [0, 1]);
+
+  const groups = {};
+  d.attack_map.forEach(a => (groups[a.class_name] ||= []).push(a));
+  h += '<h4>Top columns per class</h4>' + table(['Class', 'Columns, with the share of runs that picked them'],
+    Object.entries(groups).map(([c, a]) => ({wrap: 1, cells: [esc(c),
+      a.filter(x => x.feature_name).map(x => `${esc(x.feature_name)} <i>${fx(x.selection_freq, 2)}</i>`).join(' · ') || esc(a[0].note || '–')]})), [0, 1]);
+
+  h += '<h4>Charts</h4><div class="figs">' + d.figures.map(f =>
+    `<a href="/figures/${set}/${encodeURIComponent(f)}" target="_blank" rel="noopener"><img loading="lazy" src="/figures/${set}/${encodeURIComponent(f)}" alt="${esc(f)}"></a>`).join('') + '</div>';
+  body.innerHTML = h;
+}
+paintScores();
+
+// ---- the vote, recorded from the last full run (live runs are switched off while this is in development).
+// fold 1 of 5 of the --fixed experiment: results_fixed/nslkdd_freq.npz and results_fixed_cici2023_group/cici2023_freq.npz;
+// agree = within_resamples for cfrfs in the matching *_stability.json
+const RECORDED = {"nslkdd":{"names":["duration","protocol_type","service","flag","src_bytes","dst_bytes","land","wrong_fragment","urgent","hot","num_failed_logins","logged_in","num_compromised","root_shell","su_attempted","num_root","num_file_creations","num_shells","num_access_files","num_outbound_cmds","is_host_login","is_guest_login","count","srv_count","serror_rate","srv_serror_rate","rerror_rate","srv_rerror_rate","same_srv_rate","diff_srv_rate","srv_diff_host_rate","dst_host_count","dst_host_srv_count","dst_host_same_srv_rate","dst_host_diff_srv_rate","dst_host_same_src_port_rate","dst_host_srv_diff_host_rate","dst_host_serror_rate","dst_host_srv_serror_rate","dst_host_rerror_rate","dst_host_srv_rerror_rate"],"freq":[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.93,0.17,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.4,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.03,0.8,0.2,0.37,0.0,0.1,0.0,0.0,0.0,0.0,0.0],"kept":[0,1,2,3,4,5,6,7,8,9,22,31],"runs":30,"agree":0.8409},"cici2023":{"names":["Header_Length","Protocol Type","Time_To_Live","Rate","fin_flag_number","syn_flag_number","rst_flag_number","psh_flag_number","ack_flag_number","ece_flag_number","cwr_flag_number","ack_count","syn_count","fin_count","rst_count","HTTP","HTTPS","DNS","Telnet","SMTP","SSH","IRC","TCP","UDP","DHCP","ARP","ICMP","IGMP","IPv","LLC","Tot sum","Min","Max","AVG","Std","Tot size","IAT","Number","Variance"],"freq":[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.1,0.03,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.03,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.87,0.03,0.0,0.0,0.0,0.93,0.0],"kept":[0,1,2,3,4,5,6,7,8,9,32,37],"runs":30,"agree":0.8851}};
+function showVote() {
+  const v = RECORDED[dataset()], el = $('bars');
+  el.textContent = ''; el.classList.add('done');
+  v.names.forEach((n, i) => {
+    const r = document.createElement('div'); r.className = 'row' + (v.kept.includes(i) ? ' kept' : '');
+    r.innerHTML = '<span class="nm"></span><span class="tr"><i></i></span><span class="v"></span>';
+    r.querySelector('.nm').textContent = n; r.querySelector('.nm').title = n;
+    r.querySelector('.v').textContent = Math.round(v.freq[i] * 100) + '%';
+    el.appendChild(r);
+  });
+  requestAnimationFrame(() => requestAnimationFrame(() =>        // let the bars grow in from zero
+    el.querySelectorAll('.row i').forEach((b, i) => { b.style.width = v.freq[i] * 100 + '%'; })));
+  $('voteLabel').textContent = `Last run · ${v.names.length} columns · ${v.runs} runs`;
+  $('voteTitle').textContent = `Kept ${v.kept.length} of ${v.names.length} columns`;
+  const low = v.kept.filter(i => v.freq[i] < 0.5).map(i => esc(v.names[i]));
+  $('verdict').innerHTML = `<b>${v.kept.map(i => esc(v.names[i])).join(', ')}</b>
+    <p>${low.length ? `Fewer than ${v.kept.length} columns passed 50%, so the next most-voted (${low.join(', ')}) was added to reach ${v.kept.length}. ` : ''}The ${v.runs} single runs agreed ${v.agree.toFixed(2)} on average (1.00 = every run picked the same columns). That gap is why a single run can't be trusted.</p>`;
+}
+$('status').textContent = 'Showing the recorded vote from the last full run (first of 5 folds).';
+showVote();
+</script>
+</body>
+</html>

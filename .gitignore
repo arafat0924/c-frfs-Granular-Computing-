@@ -1,0 +1,27 @@
+# large / regenerated files — not committed
+data/
+cache/
+*.npz
+*.log
+!results/timing.log
+run.err
+
+# smoke / scratch outputs
+results_smoke/
+results/robustness_smoke.csv
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+
+# build output
+webapp/dist/

@@ -1,0 +1,282 @@
+[
+  {
+    "condition": "none",
+    "classifier": "knn",
+    "n_features": 39,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.76,
+    "accuracy_std": 0.0042,
+    "macro_f1_mean": 0.6108,
+    "macro_f1_std": 0.0038,
+    "binary_f1_mean": 0.9741,
+    "fit_time_s_mean": 0.027,
+    "predict_time_s_mean": 1.6274,
+    "macro_f1_folds": [
+      0.6156,
+      0.6149,
+      0.6092,
+      0.6076,
+      0.6065
+    ]
+  },
+  {
+    "condition": "none",
+    "classifier": "dt",
+    "n_features": 39,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7287,
+    "accuracy_std": 0.0059,
+    "macro_f1_mean": 0.6412,
+    "macro_f1_std": 0.0079,
+    "binary_f1_mean": 0.9712,
+    "fit_time_s_mean": 0.278,
+    "predict_time_s_mean": 0.002,
+    "macro_f1_folds": [
+      0.6265,
+      0.6415,
+      0.6495,
+      0.6417,
+      0.6466
+    ]
+  },
+  {
+    "condition": "cfrfs",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7398,
+    "accuracy_std": 0.0039,
+    "macro_f1_mean": 0.5547,
+    "macro_f1_std": 0.004,
+    "binary_f1_mean": 0.9729,
+    "fit_time_s_mean": 0.056,
+    "predict_time_s_mean": 0.4329,
+    "macro_f1_folds": [
+      0.5541,
+      0.5502,
+      0.5583,
+      0.5602,
+      0.5506
+    ]
+  },
+  {
+    "condition": "cfrfs",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.711,
+    "accuracy_std": 0.0068,
+    "macro_f1_mean": 0.6032,
+    "macro_f1_std": 0.008,
+    "binary_f1_mean": 0.9723,
+    "fit_time_s_mean": 0.212,
+    "predict_time_s_mean": 0.0014,
+    "macro_f1_folds": [
+      0.604,
+      0.6024,
+      0.6089,
+      0.5888,
+      0.6119
+    ]
+  },
+  {
+    "condition": "frfs_300",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7208,
+    "accuracy_std": 0.0195,
+    "macro_f1_mean": 0.5345,
+    "macro_f1_std": 0.0193,
+    "binary_f1_mean": 0.9715,
+    "fit_time_s_mean": 0.051,
+    "predict_time_s_mean": 0.6293,
+    "macro_f1_folds": [
+      0.5578,
+      0.5194,
+      0.5386,
+      0.5059,
+      0.5506
+    ]
+  },
+  {
+    "condition": "frfs_300",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.6836,
+    "accuracy_std": 0.0229,
+    "macro_f1_mean": 0.568,
+    "macro_f1_std": 0.0278,
+    "binary_f1_mean": 0.969,
+    "fit_time_s_mean": 0.15,
+    "predict_time_s_mean": 0.0012,
+    "macro_f1_folds": [
+      0.584,
+      0.5637,
+      0.5475,
+      0.5327,
+      0.6119
+    ]
+  },
+  {
+    "condition": "frfs_1000",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7298,
+    "accuracy_std": 0.0192,
+    "macro_f1_mean": 0.5438,
+    "macro_f1_std": 0.0192,
+    "binary_f1_mean": 0.9723,
+    "fit_time_s_mean": 0.084,
+    "predict_time_s_mean": 0.7097,
+    "macro_f1_folds": [
+      0.5541,
+      0.5502,
+      0.5583,
+      0.5059,
+      0.5506
+    ]
+  },
+  {
+    "condition": "frfs_1000",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7009,
+    "accuracy_std": 0.0256,
+    "macro_f1_mean": 0.592,
+    "macro_f1_std": 0.0298,
+    "binary_f1_mean": 0.9714,
+    "fit_time_s_mean": 0.258,
+    "predict_time_s_mean": 0.002,
+    "macro_f1_folds": [
+      0.604,
+      0.6024,
+      0.6089,
+      0.5327,
+      0.6119
+    ]
+  },
+  {
+    "condition": "mi",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7305,
+    "accuracy_std": 0.006,
+    "macro_f1_mean": 0.5466,
+    "macro_f1_std": 0.0029,
+    "binary_f1_mean": 0.9731,
+    "fit_time_s_mean": 0.181,
+    "predict_time_s_mean": 0.3929,
+    "macro_f1_folds": [
+      0.5509,
+      0.5479,
+      0.542,
+      0.5455,
+      0.5467
+    ]
+  },
+  {
+    "condition": "mi",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.6742,
+    "accuracy_std": 0.0129,
+    "macro_f1_mean": 0.5769,
+    "macro_f1_std": 0.0109,
+    "binary_f1_mean": 0.9765,
+    "fit_time_s_mean": 0.268,
+    "predict_time_s_mean": 0.0018,
+    "macro_f1_folds": [
+      0.5742,
+      0.5881,
+      0.5752,
+      0.5588,
+      0.5882
+    ]
+  },
+  {
+    "condition": "chi2",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7421,
+    "accuracy_std": 0.002,
+    "macro_f1_mean": 0.5672,
+    "macro_f1_std": 0.0025,
+    "binary_f1_mean": 0.9708,
+    "fit_time_s_mean": 0.071,
+    "predict_time_s_mean": 0.4248,
+    "macro_f1_folds": [
+      0.5651,
+      0.5633,
+      0.5699,
+      0.5683,
+      0.5692
+    ]
+  },
+  {
+    "condition": "chi2",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.657,
+    "accuracy_std": 0.007,
+    "macro_f1_mean": 0.5529,
+    "macro_f1_std": 0.009,
+    "binary_f1_mean": 0.966,
+    "fit_time_s_mean": 0.114,
+    "predict_time_s_mean": 0.0014,
+    "macro_f1_folds": [
+      0.5497,
+      0.5672,
+      0.5571,
+      0.5398,
+      0.551
+    ]
+  },
+  {
+    "condition": "pca",
+    "classifier": "knn",
+    "n_features": -1,
+    "semantics_preserved": "No",
+    "accuracy_mean": 0.7491,
+    "accuracy_std": 0.0049,
+    "macro_f1_mean": 0.5714,
+    "macro_f1_std": 0.0064,
+    "binary_f1_mean": 0.9724,
+    "fit_time_s_mean": 0.098,
+    "predict_time_s_mean": 0.1679,
+    "macro_f1_folds": [
+      0.5736,
+      0.5724,
+      0.5696,
+      0.5608,
+      0.5806
+    ]
+  },
+  {
+    "condition": "pca",
+    "classifier": "dt",
+    "n_features": -1,
+    "semantics_preserved": "No",
+    "accuracy_mean": 0.6889,
+    "accuracy_std": 0.0078,
+    "macro_f1_mean": 0.5655,
+    "macro_f1_std": 0.0103,
+    "binary_f1_mean": 0.9662,
+    "fit_time_s_mean": 0.385,
+    "predict_time_s_mean": 0.0019,
+    "macro_f1_folds": [
+      0.5538,
+      0.5819,
+      0.5625,
+      0.557,
+      0.5723
+    ]
+  }
+]

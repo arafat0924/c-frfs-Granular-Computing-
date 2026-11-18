@@ -1,0 +1,13 @@
+classifier,metric,other,mean_diff,folds_cfrfs_ge,folds
+knn,macro_f1,none,-0.0561,0,5
+dt,macro_f1,none,-0.038,0,5
+knn,macro_f1,frfs_300,0.0202,4,5
+dt,macro_f1,frfs_300,0.0352,5,5
+knn,macro_f1,frfs_1000,0.0109,5,5
+dt,macro_f1,frfs_1000,0.0112,5,5
+knn,macro_f1,mi,0.0081,5,5
+dt,macro_f1,mi,0.0263,5,5
+knn,macro_f1,chi2,-0.0125,0,5
+dt,macro_f1,chi2,0.0502,5,5
+knn,macro_f1,pca,-0.0167,0,5
+dt,macro_f1,pca,0.0377,5,5

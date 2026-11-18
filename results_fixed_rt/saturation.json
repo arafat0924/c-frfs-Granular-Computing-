@@ -1,0 +1,1866 @@
+{
+ "NSL-KDD": {
+  "100": [
+   [
+    {
+     "share": 0.9543180908695649,
+     "ties": 1,
+     "col": "dst_host_same_srv_rate"
+    },
+    {
+     "share": 0.9977410511022374,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 1.0,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 38,
+     "col": "urgent"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "src_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "dst_host_diff_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "same_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "root_shell"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "dst_host_srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "dst_host_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "logged_in"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "wrong_fragment"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "srv_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "dst_host_srv_count"
+    }
+   ],
+   [
+    {
+     "share": 0.9681325474773937,
+     "ties": 1,
+     "col": "dst_host_same_srv_rate"
+    },
+    {
+     "share": 0.998293723059088,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 0.9999943920339373,
+     "ties": 1,
+     "col": "dst_host_same_src_port_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 16,
+     "col": "serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "dst_host_srv_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "num_shells"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "is_guest_login"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "num_access_files"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "num_failed_logins"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "dst_host_srv_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "same_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "wrong_fragment"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "dst_host_serror_rate"
+    }
+   ],
+   [
+    {
+     "share": 0.9608066231195277,
+     "ties": 1,
+     "col": "dst_host_same_srv_rate"
+    },
+    {
+     "share": 0.9963492637086472,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 0.9999997898290378,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 1.0,
+     "ties": 18,
+     "col": "dst_host_srv_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "dst_host_srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "num_file_creations"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "dst_host_srv_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "su_attempted"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "diff_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "dst_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "land"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "dst_host_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "src_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "is_host_login"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "protocol_type"
+    }
+   ],
+   [
+    {
+     "share": 0.973125840453232,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 0.9997767847100638,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 7,
+     "col": "dst_host_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 38,
+     "col": "flag"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "dst_host_same_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "src_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "num_shells"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "num_access_files"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "count"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "is_host_login"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "su_attempted"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "dst_host_same_src_port_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "wrong_fragment"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "dst_host_srv_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "dst_host_srv_diff_host_rate"
+    }
+   ],
+   [
+    {
+     "share": 0.9625410211284553,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 0.9998416451479452,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 0.9999971303916912,
+     "ties": 1,
+     "col": "dst_host_srv_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 14,
+     "col": "srv_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "wrong_fragment"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "dst_host_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "num_root"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "land"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "num_compromised"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "logged_in"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "num_access_files"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "dst_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "src_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "num_outbound_cmds"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "srv_diff_host_rate"
+    }
+   ]
+  ],
+  "300": [
+   [
+    {
+     "share": 0.9781688914622936,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 0.9997956572120588,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 2,
+     "col": "count"
+    },
+    {
+     "share": 1.0,
+     "ties": 38,
+     "col": "srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "diff_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "num_root"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "num_failed_logins"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "duration"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "srv_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "hot"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "urgent"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "dst_host_same_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "is_host_login"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "dst_host_srv_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "dst_host_srv_diff_host_rate"
+    }
+   ],
+   [
+    {
+     "share": 0.972832010180189,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 0.9997675613594776,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 0.9999919668979041,
+     "ties": 1,
+     "col": "flag"
+    },
+    {
+     "share": 1.0,
+     "ties": 6,
+     "col": "srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "wrong_fragment"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "hot"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "is_host_login"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "logged_in"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "same_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "dst_host_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "dst_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "num_root"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "land"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "num_shells"
+    }
+   ],
+   [
+    {
+     "share": 0.9686647982961324,
+     "ties": 1,
+     "col": "dst_host_same_srv_rate"
+    },
+    {
+     "share": 0.9969305911072784,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 1.0,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 38,
+     "col": "num_file_creations"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "dst_host_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "dst_host_diff_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "num_failed_logins"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "protocol_type"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "dst_host_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "is_host_login"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "srv_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "num_outbound_cmds"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "dst_host_same_src_port_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "srv_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "dst_host_srv_rerror_rate"
+    }
+   ],
+   [
+    {
+     "share": 0.9694582564250273,
+     "ties": 1,
+     "col": "dst_host_same_srv_rate"
+    },
+    {
+     "share": 0.9967931705011519,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 0.9999991565914101,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 1.0,
+     "ties": 4,
+     "col": "dst_host_srv_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "su_attempted"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "same_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "srv_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "count"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "root_shell"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "num_outbound_cmds"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "wrong_fragment"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "protocol_type"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "duration"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "hot"
+    }
+   ],
+   [
+    {
+     "share": 0.9810302952884152,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 0.9997956802354742,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 1,
+     "col": "flag"
+    },
+    {
+     "share": 1.0,
+     "ties": 38,
+     "col": "dst_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "is_host_login"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "srv_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "wrong_fragment"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "duration"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "count"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "dst_host_srv_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "num_outbound_cmds"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "dst_host_diff_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "same_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "num_compromised"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "protocol_type"
+    }
+   ]
+  ],
+  "1000": [
+   [
+    {
+     "share": 0.9773344618237189,
+     "ties": 1,
+     "col": "dst_host_same_srv_rate"
+    },
+    {
+     "share": 0.9970020065934948,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 0.9999978041098866,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 7,
+     "col": "dst_host_srv_serror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "flag"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "src_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "diff_srv_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "srv_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "urgent"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "wrong_fragment"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "dst_host_srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "hot"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "root_shell"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "dst_bytes"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "logged_in"
+    }
+   ],
+   [
+    {
+     "share": 0.9771671498813892,
+     "ties": 1,
+     "col": "service"
+    },
+    {
+     "share": 0.9999526094155635,
+     "ties": 1,
+     "col": "dst_host_count"
+    },
+    {
+     "share": 0.9999996725355518,
+     "ties": 1,
+     "col": "flag"
+    },
+    {
+     "share": 1.0,
+     "ties": 8,
+     "col": "srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 37,
+     "col": "dst_host_rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "duration"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "is_guest_login"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "protocol_type"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "dst_host_same_src_port_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "num_root"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "dst_host_srv_diff_host_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "su_attempted"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "logged_in"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "rerror_rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "serror_rate"
+    }
+   ]
+  ]
+ },
+ "CIC-IoT2023 (8 groups)": {
+  "100": [
+   [
+    {
+     "share": 0.9538377815446732,
+     "ties": 1,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 0.9990766862622275,
+     "ties": 2,
+     "col": "AVG"
+    },
+    {
+     "share": 1.0,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "DHCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "Telnet"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "ARP"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "rst_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "UDP"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "cwr_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "Tot size"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "fin_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "Number"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "rst_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "DNS"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "ICMP"
+    }
+   ],
+   [
+    {
+     "share": 0.9654528016533712,
+     "ties": 1,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 0.9990685376970164,
+     "ties": 2,
+     "col": "AVG"
+    },
+    {
+     "share": 1.0,
+     "ties": 2,
+     "col": "UDP"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "SMTP"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "syn_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "Number"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "fin_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "DNS"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "ICMP"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "ARP"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "Std"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "ack_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "ece_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "SSH"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "Time_To_Live"
+    }
+   ],
+   [
+    {
+     "share": 0.9651753093988339,
+     "ties": 1,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 0.999847891758566,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 1.0,
+     "ties": 4,
+     "col": "IAT"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "psh_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "AVG"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "Min"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "LLC"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "ece_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "IRC"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "Tot size"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "ARP"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "ICMP"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "HTTP"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "fin_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "fin_count"
+    }
+   ],
+   [
+    {
+     "share": 0.9613934122818655,
+     "ties": 1,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 0.9993354667803059,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 1.0,
+     "ties": 4,
+     "col": "Time_To_Live"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "rst_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "fin_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "SSH"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "Tot sum"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "HTTP"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "Rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "HTTPS"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "ack_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "TCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "DHCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "Min"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "IGMP"
+    }
+   ],
+   [
+    {
+     "share": 0.9603079602658114,
+     "ties": 1,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 0.9994712749246597,
+     "ties": 2,
+     "col": "Tot size"
+    },
+    {
+     "share": 1.0,
+     "ties": 2,
+     "col": "Header_Length"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "DNS"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "rst_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "Variance"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "Telnet"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "UDP"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "DHCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "ack_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "TCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "psh_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "AVG"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "rst_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "Rate"
+    }
+   ]
+  ],
+  "300": [
+   [
+    {
+     "share": 0.9672452993287484,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 0.9996514196844764,
+     "ties": 1,
+     "col": "Number"
+    },
+    {
+     "share": 0.99999928620025,
+     "ties": 1,
+     "col": "Max"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "IAT"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "syn_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "fin_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "ICMP"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "Variance"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "IRC"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "Min"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "Protocol Type"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "IPv"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "TCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "ece_flag_number"
+    }
+   ],
+   [
+    {
+     "share": 0.9699219131165933,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 0.9996181418429412,
+     "ties": 1,
+     "col": "Number"
+    },
+    {
+     "share": 1.0,
+     "ties": 5,
+     "col": "Max"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "UDP"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "fin_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "IAT"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "DHCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "ece_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "cwr_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "Min"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "Variance"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "HTTPS"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "fin_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "IPv"
+    }
+   ],
+   [
+    {
+     "share": 0.9697610295720729,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 0.9996860665598094,
+     "ties": 1,
+     "col": "Number"
+    },
+    {
+     "share": 1.0,
+     "ties": 5,
+     "col": "Max"
+    },
+    {
+     "share": 1.0,
+     "ties": 36,
+     "col": "Time_To_Live"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "syn_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "fin_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "cwr_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "ack_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "IGMP"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "Rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "fin_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "rst_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "IPv"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "HTTPS"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "Variance"
+    }
+   ],
+   [
+    {
+     "share": 0.9705761870921246,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 0.9998561057713069,
+     "ties": 1,
+     "col": "Number"
+    },
+    {
+     "share": 0.999999715315549,
+     "ties": 1,
+     "col": "Max"
+    },
+    {
+     "share": 1.0,
+     "ties": 13,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "rst_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "Variance"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "Time_To_Live"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "AVG"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "DHCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "Std"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "SSH"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "ece_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "Rate"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "SMTP"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "Min"
+    }
+   ],
+   [
+    {
+     "share": 0.9710662052413043,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 0.9998613305436194,
+     "ties": 1,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 0.9999985457860966,
+     "ties": 1,
+     "col": "Tot sum"
+    },
+    {
+     "share": 1.0,
+     "ties": 10,
+     "col": "Number"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "DNS"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "ICMP"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "ARP"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "AVG"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "Max"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "ece_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "IAT"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "syn_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "IRC"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "Std"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "Rate"
+    }
+   ]
+  ],
+  "1000": [
+   [
+    {
+     "share": 0.96856635833615,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 0.9997116617516194,
+     "ties": 1,
+     "col": "Number"
+    },
+    {
+     "share": 0.9999999376924632,
+     "ties": 1,
+     "col": "Max"
+    },
+    {
+     "share": 1.0,
+     "ties": 12,
+     "col": "fin_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "ARP"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "IAT"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "UDP"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "LLC"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "Time_To_Live"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "rst_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "DNS"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "SMTP"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "Std"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "Telnet"
+    }
+   ],
+   [
+    {
+     "share": 0.9722257276762453,
+     "ties": 1,
+     "col": "Header_Length"
+    },
+    {
+     "share": 0.9995638330105793,
+     "ties": 1,
+     "col": "ack_flag_number"
+    },
+    {
+     "share": 0.9999999877878821,
+     "ties": 1,
+     "col": "UDP"
+    },
+    {
+     "share": 1.0,
+     "ties": 22,
+     "col": "rst_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 35,
+     "col": "Tot sum"
+    },
+    {
+     "share": 1.0,
+     "ties": 34,
+     "col": "HTTPS"
+    },
+    {
+     "share": 1.0,
+     "ties": 33,
+     "col": "ICMP"
+    },
+    {
+     "share": 1.0,
+     "ties": 32,
+     "col": "syn_count"
+    },
+    {
+     "share": 1.0,
+     "ties": 31,
+     "col": "Std"
+    },
+    {
+     "share": 1.0,
+     "ties": 30,
+     "col": "Telnet"
+    },
+    {
+     "share": 1.0,
+     "ties": 29,
+     "col": "psh_flag_number"
+    },
+    {
+     "share": 1.0,
+     "ties": 28,
+     "col": "TCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 27,
+     "col": "DHCP"
+    },
+    {
+     "share": 1.0,
+     "ties": 26,
+     "col": "LLC"
+    },
+    {
+     "share": 1.0,
+     "ties": 25,
+     "col": "IGMP"
+    }
+   ]
+  ]
+ }
+}

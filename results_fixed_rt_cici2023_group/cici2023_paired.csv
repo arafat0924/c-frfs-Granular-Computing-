@@ -1,0 +1,17 @@
+classifier,metric,other,mean_diff,folds_cfrfs_ge,folds
+knn,macro_f1,none,-0.082,0,5
+dt,macro_f1,none,-0.1102,0,5
+knn,macro_f1,frfs_300,-0.0068,2,5
+dt,macro_f1,frfs_300,-0.0379,0,5
+knn,macro_f1,frfs_1000,-0.0266,0,5
+dt,macro_f1,frfs_1000,-0.0617,0,5
+knn,macro_f1,mi,-0.0179,1,5
+dt,macro_f1,mi,-0.046,0,5
+knn,macro_f1,chi2,-0.0385,0,5
+dt,macro_f1,chi2,-0.022,0,5
+knn,macro_f1,pca,-0.0427,0,5
+dt,macro_f1,pca,-0.0346,0,5
+knn,macro_f1,cfrfs_top12,-0.0118,1,5
+dt,macro_f1,cfrfs_top12,-0.0439,0,5
+knn,macro_f1,mi_matched,0.0062,3,5
+dt,macro_f1,mi_matched,0.0059,2,5

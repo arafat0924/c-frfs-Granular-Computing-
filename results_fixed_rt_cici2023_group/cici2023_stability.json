@@ -1,0 +1,35 @@
+{
+  "none": {
+    "within_resamples": null,
+    "across_folds": 1.0
+  },
+  "cfrfs": {
+    "within_resamples": 0.2379,
+    "across_folds": 0.85,
+    "consensus_repeat": 0.8
+  },
+  "frfs_300": {
+    "within_resamples": 0.2379,
+    "across_folds": 0.2279
+  },
+  "frfs_1000": {
+    "within_resamples": 0.2537,
+    "across_folds": 0.2676
+  },
+  "mi": {
+    "within_resamples": null,
+    "across_folds": 1.0
+  },
+  "chi2": {
+    "within_resamples": null,
+    "across_folds": 1.0
+  },
+  "cfrfs_top12": {
+    "within_resamples": null,
+    "across_folds": 0.3465
+  },
+  "mi_matched": {
+    "within_resamples": null,
+    "across_folds": 0.64
+  }
+}

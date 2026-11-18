@@ -1,0 +1,11 @@
+class_name,rank,feature_name,selection_freq,note
+benign,1,Header_Length,1.0,
+benign,2,Time_To_Live,0.7,
+benign,3,psh_flag_number,0.4,
+benign,4,IAT,0.3,
+benign,5,ARP,0.2,
+attack,1,Header_Length,0.8,
+attack,2,Time_To_Live,0.5,
+attack,3,HTTPS,0.5,
+attack,4,Std,0.4,
+attack,5,psh_flag_number,0.3,

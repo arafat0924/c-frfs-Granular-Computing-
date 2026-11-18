@@ -1,0 +1,378 @@
+[
+  {
+    "condition": "none",
+    "classifier": "knn",
+    "n_features": 39,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7599,
+    "accuracy_std": 0.0042,
+    "macro_f1_mean": 0.6107,
+    "macro_f1_std": 0.0038,
+    "binary_f1_mean": 0.9741,
+    "fit_time_s_mean": 0.028,
+    "predict_time_s_mean": 1.1932,
+    "macro_f1_folds": [
+      0.6155,
+      0.6149,
+      0.609,
+      0.6076,
+      0.6065
+    ],
+    "n_features_mean": 39.0
+  },
+  {
+    "condition": "none",
+    "classifier": "dt",
+    "n_features": 39,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7287,
+    "accuracy_std": 0.0059,
+    "macro_f1_mean": 0.6412,
+    "macro_f1_std": 0.0079,
+    "binary_f1_mean": 0.9712,
+    "fit_time_s_mean": 0.562,
+    "predict_time_s_mean": 0.0025,
+    "macro_f1_folds": [
+      0.6265,
+      0.6415,
+      0.6495,
+      0.6417,
+      0.6466
+    ],
+    "n_features_mean": 39.0
+  },
+  {
+    "condition": "cfrfs",
+    "classifier": "knn",
+    "n_features": 3,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7248,
+    "accuracy_std": 0.0024,
+    "macro_f1_mean": 0.5287,
+    "macro_f1_std": 0.0124,
+    "binary_f1_mean": 0.9745,
+    "fit_time_s_mean": 0.02,
+    "predict_time_s_mean": 0.723,
+    "macro_f1_folds": [
+      0.5184,
+      0.5434,
+      0.544,
+      0.5218,
+      0.5159
+    ],
+    "n_features_mean": 3.4
+  },
+  {
+    "condition": "cfrfs",
+    "classifier": "dt",
+    "n_features": 3,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.5964,
+    "accuracy_std": 0.0162,
+    "macro_f1_mean": 0.5309,
+    "macro_f1_std": 0.0092,
+    "binary_f1_mean": 0.9699,
+    "fit_time_s_mean": 0.126,
+    "predict_time_s_mean": 0.0024,
+    "macro_f1_folds": [
+      0.5253,
+      0.526,
+      0.5485,
+      0.5233,
+      0.5316
+    ],
+    "n_features_mean": 3.4
+  },
+  {
+    "condition": "frfs_300",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7347,
+    "accuracy_std": 0.0089,
+    "macro_f1_mean": 0.5355,
+    "macro_f1_std": 0.0129,
+    "binary_f1_mean": 0.9706,
+    "fit_time_s_mean": 0.092,
+    "predict_time_s_mean": 1.6174,
+    "macro_f1_folds": [
+      0.5458,
+      0.5198,
+      0.5344,
+      0.5236,
+      0.554
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "frfs_300",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.6688,
+    "accuracy_std": 0.0158,
+    "macro_f1_mean": 0.5689,
+    "macro_f1_std": 0.0204,
+    "binary_f1_mean": 0.9707,
+    "fit_time_s_mean": 0.427,
+    "predict_time_s_mean": 0.0013,
+    "macro_f1_folds": [
+      0.5671,
+      0.543,
+      0.5958,
+      0.5507,
+      0.5878
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "frfs_1000",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7352,
+    "accuracy_std": 0.0075,
+    "macro_f1_mean": 0.5553,
+    "macro_f1_std": 0.0138,
+    "binary_f1_mean": 0.9729,
+    "fit_time_s_mean": 0.248,
+    "predict_time_s_mean": 1.4099,
+    "macro_f1_folds": [
+      0.5472,
+      0.5564,
+      0.5504,
+      0.5412,
+      0.5811
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "frfs_1000",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.6809,
+    "accuracy_std": 0.0222,
+    "macro_f1_mean": 0.5926,
+    "macro_f1_std": 0.0158,
+    "binary_f1_mean": 0.9707,
+    "fit_time_s_mean": 0.669,
+    "predict_time_s_mean": 0.0023,
+    "macro_f1_folds": [
+      0.5827,
+      0.569,
+      0.5919,
+      0.6114,
+      0.608
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "mi",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7305,
+    "accuracy_std": 0.006,
+    "macro_f1_mean": 0.5466,
+    "macro_f1_std": 0.0029,
+    "binary_f1_mean": 0.9731,
+    "fit_time_s_mean": 0.042,
+    "predict_time_s_mean": 0.9259,
+    "macro_f1_folds": [
+      0.5509,
+      0.5479,
+      0.542,
+      0.5455,
+      0.5467
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "mi",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.6742,
+    "accuracy_std": 0.0129,
+    "macro_f1_mean": 0.5769,
+    "macro_f1_std": 0.0109,
+    "binary_f1_mean": 0.9765,
+    "fit_time_s_mean": 0.439,
+    "predict_time_s_mean": 0.0017,
+    "macro_f1_folds": [
+      0.5742,
+      0.5881,
+      0.5752,
+      0.5588,
+      0.5882
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "chi2",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7421,
+    "accuracy_std": 0.002,
+    "macro_f1_mean": 0.5672,
+    "macro_f1_std": 0.0025,
+    "binary_f1_mean": 0.9708,
+    "fit_time_s_mean": 0.065,
+    "predict_time_s_mean": 1.0762,
+    "macro_f1_folds": [
+      0.5651,
+      0.5633,
+      0.5699,
+      0.5683,
+      0.5692
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "chi2",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.657,
+    "accuracy_std": 0.007,
+    "macro_f1_mean": 0.5529,
+    "macro_f1_std": 0.009,
+    "binary_f1_mean": 0.966,
+    "fit_time_s_mean": 0.133,
+    "predict_time_s_mean": 0.0018,
+    "macro_f1_folds": [
+      0.5497,
+      0.5672,
+      0.5571,
+      0.5398,
+      0.551
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "pca",
+    "classifier": "knn",
+    "n_features": -1,
+    "semantics_preserved": "No",
+    "accuracy_mean": 0.7491,
+    "accuracy_std": 0.0049,
+    "macro_f1_mean": 0.5714,
+    "macro_f1_std": 0.0064,
+    "binary_f1_mean": 0.9724,
+    "fit_time_s_mean": 0.087,
+    "predict_time_s_mean": 0.936,
+    "macro_f1_folds": [
+      0.5736,
+      0.5724,
+      0.5696,
+      0.5608,
+      0.5806
+    ]
+  },
+  {
+    "condition": "pca",
+    "classifier": "dt",
+    "n_features": -1,
+    "semantics_preserved": "No",
+    "accuracy_mean": 0.6889,
+    "accuracy_std": 0.0078,
+    "macro_f1_mean": 0.5655,
+    "macro_f1_std": 0.0103,
+    "binary_f1_mean": 0.9662,
+    "fit_time_s_mean": 0.916,
+    "predict_time_s_mean": 0.0013,
+    "macro_f1_folds": [
+      0.5538,
+      0.5819,
+      0.5625,
+      0.557,
+      0.5723
+    ]
+  },
+  {
+    "condition": "cfrfs_top12",
+    "classifier": "knn",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7354,
+    "accuracy_std": 0.0077,
+    "macro_f1_mean": 0.5405,
+    "macro_f1_std": 0.0106,
+    "binary_f1_mean": 0.9711,
+    "fit_time_s_mean": 0.085,
+    "predict_time_s_mean": 1.4722,
+    "macro_f1_folds": [
+      0.5445,
+      0.5488,
+      0.5308,
+      0.5254,
+      0.5528
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "cfrfs_top12",
+    "classifier": "dt",
+    "n_features": 12,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.6735,
+    "accuracy_std": 0.0157,
+    "macro_f1_mean": 0.5748,
+    "macro_f1_std": 0.018,
+    "binary_f1_mean": 0.9731,
+    "fit_time_s_mean": 0.334,
+    "predict_time_s_mean": 0.0019,
+    "macro_f1_folds": [
+      0.5756,
+      0.5854,
+      0.6022,
+      0.5581,
+      0.5528
+    ],
+    "n_features_mean": 12.0
+  },
+  {
+    "condition": "mi_matched",
+    "classifier": "knn",
+    "n_features": 3,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.7229,
+    "accuracy_std": 0.0084,
+    "macro_f1_mean": 0.5225,
+    "macro_f1_std": 0.018,
+    "binary_f1_mean": 0.9712,
+    "fit_time_s_mean": 0.031,
+    "predict_time_s_mean": 0.7514,
+    "macro_f1_folds": [
+      0.5134,
+      0.5511,
+      0.5327,
+      0.4986,
+      0.5167
+    ],
+    "n_features_mean": 3.4
+  },
+  {
+    "condition": "mi_matched",
+    "classifier": "dt",
+    "n_features": 3,
+    "semantics_preserved": "Yes",
+    "accuracy_mean": 0.5716,
+    "accuracy_std": 0.0179,
+    "macro_f1_mean": 0.525,
+    "macro_f1_std": 0.0088,
+    "binary_f1_mean": 0.973,
+    "fit_time_s_mean": 0.176,
+    "predict_time_s_mean": 0.0035,
+    "macro_f1_folds": [
+      0.5298,
+      0.5303,
+      0.5236,
+      0.5329,
+      0.5085
+    ],
+    "n_features_mean": 3.4
+  }
+]

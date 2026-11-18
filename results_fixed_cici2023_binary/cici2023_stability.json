@@ -1,0 +1,27 @@
+{
+  "none": {
+    "within_resamples": null,
+    "across_folds": 1.0
+  },
+  "cfrfs": {
+    "within_resamples": 0.8967,
+    "across_folds": 0.9077,
+    "consensus_repeat": 0.9385
+  },
+  "frfs_300": {
+    "within_resamples": 0.8967,
+    "across_folds": 0.8769
+  },
+  "frfs_1000": {
+    "within_resamples": 0.9179,
+    "across_folds": 1.0
+  },
+  "mi": {
+    "within_resamples": null,
+    "across_folds": 1.0
+  },
+  "chi2": {
+    "within_resamples": null,
+    "across_folds": 0.7705
+  }
+}
